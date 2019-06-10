@@ -1,15 +1,9 @@
-    
-// This command requires the discord-js package to create embeds
 const Discord = require('discord.js');
 
 exports.run = async (client, message, args, tools) => {
 
-    // Role Verification (Optional)
     if (!message.member.roles.find(r => r.name === 'Manager', 'Owner')) return message.channel.send('This requires the role: roleName');
-
-    // Permission Verification (Optional)
     if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('This requires the permission: ADMINISTRATOR');
-
     if (!args[0]) return message.channel.send('Proper Usage: !poll <question>');
 
     const embed = new Discord.RichEmbed()
